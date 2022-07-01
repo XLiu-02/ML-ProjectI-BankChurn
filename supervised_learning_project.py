@@ -14,10 +14,9 @@ Original file is located at
 * [Part 3: Model Training and Results Evaluation](#Part-3:-Model-Training-and-Result-Evaluation)
 
 # Part 0: Setup Google Drive Environment / Data Collection
-check this [link](https://colab.research.google.com/notebooks/io.ipynb) for more info
-"""
 
-# install pydrive to load data 给colab权利从drive拿文件
+"""
+# install pydrive to load data 
 !pip install -U -q PyDrive
 
 from pydrive.auth import GoogleAuth
@@ -109,7 +108,7 @@ num_cols
 
 cat_cols
 
-"""Split dataset # 先split,后处理数据（在training set里处理）"""
+"""Split dataset"""
 
 # get frequency count for the target variable
 churn_df['Exited'].value_counts()
@@ -149,7 +148,7 @@ without stratified sampling:
 1. testing: 2000 '1' + 500 '0'
 2. training: 7500 '0'
 ---
-with stratified sampling（等比例抽样）:
+with stratified sampling:
 1. testing: 2000 '0' + 500 '1'
 2. training: 6000 '0' + 1500 '1'
 
@@ -271,7 +270,7 @@ for classifier in model_list:
     print('Model accuracy of ' + model_names[count] + ' is ' + str(cv_score.mean()))
     count += 1
 
-"""### (Optional) Part 3.2: Use Grid Search to Find Optimal Hyperparameters
+"""### Part 3.2: Use Grid Search to Find Optimal Hyperparameters
 alternative: random search
 """
 
